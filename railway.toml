@@ -1,6 +1,6 @@
 [build]
 builder = "NIXPACKS"
-buildCommand = "bundle install"
+buildCommand = "bundle install && mkdir -p app/assets/builds"
 
 [deploy]
 startCommand = "bundle exec rails server -p $PORT"

@@ -26,6 +26,9 @@ COPY . .
 # Precompile bootsnap for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
+# Create assets directory for Propshaft
+RUN mkdir -p app/assets/builds
+
 # Expose port
 EXPOSE 3000
 
