@@ -1,13 +1,23 @@
-<h1>Login</h1>
+
+
+
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100 text-center">
+<div class="card p-5 bg-white shadow-lg border-0 rounded-5 align-items-center mx-auto">
+
+<div class="display-4 fw-bold mb-3">Login</div>
 <%= form_with url: sessions_path, local: true do |form| %>
-  <div>
-    <%= form.label :email %><br>
+  <div class="mb-3">
+  <div class="fw-bold mb-2 fs-3"><%= form.label :email %><br></div>
     <%= form.text_field :email %>
   </div>
-  <div>
-    <%= form.label :password %><br>
+  <div class="mb-3">
+  <div class="fw-bold mb-2 fs-3"><%= form.label :password %><br></div>
     <%= form.password_field :password %>
   </div>
-  <%= form.submit "Login" %>
+  <div class="mb-3">
+  <%= form.submit "login", class: "btn btn-lg btn-custom-secondary" %>
+  </div>
 <% end %>
 <p> Don't have an account? <%= link_to "Register", new_user_path %></p>
+</div>
+</div>
