@@ -1,3 +1,4 @@
+i
 GEM
   remote: https://rubygems.org/
   specs:
@@ -193,10 +194,6 @@ GEM
       prettyprint
     prettyprint (0.2.0)
     prism (1.4.0)
-    propshaft (1.2.1)
-      actionpack (>= 7.0.0)
-      activesupport (>= 7.0.0)
-      rack
     psych (5.2.6)
       date
       stringio
@@ -378,7 +375,6 @@ DEPENDENCIES
   kamal
   pg (~> 1.1)
   popper_js (~> 2.11)
-  propshaft
   puma (>= 5.0)
   rails (~> 8.0.2, >= 8.0.2.1)
   rubocop-rails-omakase
@@ -387,6 +383,7 @@ DEPENDENCIES
   solid_cable
   solid_cache
   solid_queue
+  sprockets-rails
   stimulus-rails
   thruster
   turbo-rails
