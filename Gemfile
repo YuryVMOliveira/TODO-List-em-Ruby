@@ -9,11 +9,8 @@ gem 'popper_js', '~> 2.11'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2", ">= 8.0.2.1"
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
-
-# Remove sprockets-rails to avoid conflicts
-gem "sprockets-rails", "~> 3.0", require: false
+# Use Sprockets for easier deployment
+gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
