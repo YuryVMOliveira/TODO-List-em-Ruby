@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+   resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create]
+  delete 'logout', to: 'sessions#destroy', as: :logout
+  resources :tasks
+
+  get "home/index"
+  root "home#index"
   resources :tasks
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

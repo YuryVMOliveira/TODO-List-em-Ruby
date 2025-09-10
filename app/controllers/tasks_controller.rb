@@ -1,9 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :require_login
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+  
+     @recent_tasks = current_user.tasks.where(completed: false).order(due_date: :desc).limit(5)
+     @recent_concluded_tasks = current_user.tasks.where(completed: true).order(due_date: :desc).limit(5)
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -22,7 +25,8 @@ class TasksController < ApplicationController
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
-
+    @task.user = current_user
+    
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: "Task was successfully created." }
@@ -67,4 +71,11 @@ class TasksController < ApplicationController
     def task_params
       params.expect(task: [ :title, :description, :due_date, :completed ])
     end
+
+    def current_user
+  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  def require_login
+  redirect_to new_session_path, alert: "Faça login para acessar suas tarefas." unless current_user
+end
 end

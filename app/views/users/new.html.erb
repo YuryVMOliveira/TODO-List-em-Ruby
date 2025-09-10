@@ -1,0 +1,31 @@
+
+
+
+
+<% if @user.errors.any? %>
+  <div id="error_explanation" style="color: red;">
+    <h2><%= pluralize(@user.errors.count, "erro") %> impediu este usuário de ser salvo:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @user, url: users_path, local: true do |form| %>
+  <div class="container d-flex flex-column align-items-center justify-content-center vh-100 text-center">
+  <div class="display-4 fw-bold mb-3">Register</div>
+  <div class="mb-3">
+    <div class="fw-bold mb-2 fs-3"><%= form.label :email %><br></div>
+    <div><%= form.email_field :email %></div>
+  </div>
+  <div class="mb-3">
+    <div class="fw-bold mb-2 fs-3"><%= form.label :password %><br></div>
+    <%= form.password_field :password %>
+  </div>
+  </div>
+  <%= form.submit "Register" %>
+<% end %>
+
+<p>Already have an account? <%= link_to "Login", new_session_path %></p>

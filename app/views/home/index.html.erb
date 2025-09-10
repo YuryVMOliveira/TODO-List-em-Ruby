@@ -1,0 +1,12 @@
+<% content_for :title, "Task Manager" %>
+
+<div class="container d-flex flex-column justify-content-center vh-100 text-center ">
+  <div class="card p-5 bg-white shadow-lg border-0 rounded-3 align-items-center">
+<h1 class="display-4 fw-bold mb-2 text-black">Welcome to Task Manager!</h1>
+  <p class="lead mb-2 fs-3 text-black">Manage your tasks simply and efficiently.</p>
+  <div class="d-flex gap-3">
+    <a href="<%= new_session_path %>" class="btn btn-lg btn-custom-secondary">Login</a>
+    <a href="<%= new_user_path %>" class="btn btn-lg btn-custom-secondary">Register</a>
+  </div>
+  </div>
+</div> 

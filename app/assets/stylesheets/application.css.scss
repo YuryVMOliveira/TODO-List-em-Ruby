@@ -1,0 +1,51 @@
+@use "bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #632d9c, #fd5b00);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #632d9c, #fd5b00) !important;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.concluded {
+  text-decoration: line-through;
+}
+
+.btn-custom-primary {
+  background-color: #783dbc;
+  border-color: #783dbc;
+  color: #fff;
+}
+
+.btn-custom-primary:hover {
+  background-color: #632d9c; 
+  border-color: #632d9c;
+  color: #fff;
+}
+
+.btn-custom-secondary {
+  background-color: #fd5b00;
+  border-color: #fd5b00;
+  color: #fff;
+}
+
+.btn-custom-secondary:hover {
+  background-color: #d14900; /* Um pouco mais escuro ao passar o mouse */
+  border-color: #d14900;
+  color: #fff;
+}
+.welcome-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
