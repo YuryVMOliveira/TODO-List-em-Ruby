@@ -1,0 +1,51 @@
+<!-- Modal para editar tarefa -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>
+        <button type="button" class="btn-close" onclick="closeEditTaskModal()" aria-label="Close">&times;</button>
+      </div>
+      <div id="editTaskForm">
+        <!-- O formulário será carregado aqui via JavaScript -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openEditTaskModal(taskId) {
+  // Carregar o formulário de edição via AJAX
+  fetch(`/tasks/${taskId}/edit`)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('editTaskForm').innerHTML = html;
+      document.getElementById('editTaskModal').classList.add('show');
+      document.body.classList.add('modal-open');
+    })
+    .catch(error => {
+      console.error('Error loading edit form:', error);
+    });
+}
+
+function closeEditTaskModal() {
+  document.getElementById('editTaskModal').classList.remove('show');
+  document.body.classList.remove('modal-open');
+  document.getElementById('editTaskForm').innerHTML = '';
+}
+
+// Fechar modal clicando fora dele
+window.onclick = function(event) {
+  const modal = document.getElementById('editTaskModal');
+  if (event.target == modal) {
+    closeEditTaskModal();
+  }
+}
+
+// Fechar modal com tecla ESC
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeEditTaskModal();
+  }
+});
+</script>

@@ -1,0 +1,23 @@
+<%= render 'lists/navbar' %>
+<%= render 'lists/new_list_modal' %>
+
+<div class="main-content">
+  <div class="content-header">
+    <h1>Welcome to Your Task Manager</h1>
+  </div>
+
+  <div class="welcome-message">
+    <% if @lists.any? %>
+      <div class="alert alert-info">
+        <h4>You have <%= pluralize(@lists.count, 'list') %>!</h4>
+        <p>Click on any list in the sidebar to view and manage your tasks.</p>
+      </div>
+    <% else %>
+      <div class="alert alert-warning">
+        <h4>No lists yet!</h4>
+        <p>Create your first list using the "New List" button in the sidebar.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+

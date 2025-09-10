@@ -26,7 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_10_025219) do
     t.string "title"
     t.text "description"
     t.datetime "due_date"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false

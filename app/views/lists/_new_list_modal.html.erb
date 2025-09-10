@@ -1,0 +1,50 @@
+
+
+<div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="newListModalLabel">New List</h1>
+        <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      </div>
+      <%= form_with model: List.new, url: lists_path, local: true do |form| %>
+        <div class="modal-body">
+          <div class="mb-3">
+            <%= form.label :name, "List Name", class: "form-label" %>
+            <%= form.text_field :name, class: "form-control", placeholder: "Enter the list name", required: true %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+          <%= form.submit "Create", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('newListModal').classList.add('show');
+  document.body.classList.add('modal-open');
+}
+
+function closeModal() {
+  document.getElementById('newListModal').classList.remove('show');
+  document.body.classList.remove('modal-open');
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('newListModal');
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
+</script>
+

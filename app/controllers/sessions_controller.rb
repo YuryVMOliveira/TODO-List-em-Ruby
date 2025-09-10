@@ -1,14 +1,14 @@
 # app/controllers/sessions_controller.rb
 class SessionsController < ApplicationController
   def new
-    redirect_to tasks_path if current_user
+    redirect_to lists_path if current_user
   end
 
   def create
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to tasks_path, notice: "Login successful!"
+      redirect_to lists_path, notice: "Login successful!"
     else
       flash.now[:alert] = "Invalid email or password"
       render :new, status: :unprocessable_entity

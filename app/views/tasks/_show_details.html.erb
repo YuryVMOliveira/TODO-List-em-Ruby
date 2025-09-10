@@ -1,0 +1,53 @@
+<div class="modal-body">
+  <div class="task-details">
+    <div class="mb-3">
+      <h5>Title</h5>
+      <p><%= @task.title %></p>
+    </div>
+
+    <% if @task.description.present? %>
+      <div class="mb-3">
+        <h5>Description</h5>
+        <p><%= @task.description %></p>
+      </div>
+    <% end %>
+
+    <% if @task.due_date.present? %>
+      <div class="mb-3">
+        <h5>Due Date</h5>
+        <p><%= @task.due_date.strftime("%B %d, %Y at %I:%M %p") %></p>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <h5>Status</h5>
+      <% if @task.completed %>
+        <span class="badge bg-success">Completed</span>
+      <% else %>
+        <span class="badge bg-warning">Pending</span>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <h5>List</h5>
+      <p><%= @task.list.name %></p>
+    </div>
+
+    <div class="mb-3">
+      <h5>Created</h5>
+      <p><%= @task.created_at.strftime("%B %d, %Y at %I:%M %p") %></p>
+    </div>
+
+    <% if @task.updated_at != @task.created_at %>
+      <div class="mb-3">
+        <h5>Last Updated</h5>
+        <p><%= @task.updated_at.strftime("%B %d, %Y at %I:%M %p") %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" onclick="closeViewTaskModal()">Close</button>
+  <button type="button" class="btn btn-primary" onclick="openEditTaskModal(<%= @task.id %>); closeViewTaskModal();">Edit Task</button>
+</div>

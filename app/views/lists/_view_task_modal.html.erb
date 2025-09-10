@@ -1,0 +1,51 @@
+<!-- Modal para visualizar tarefa -->
+<div class="modal fade" id="viewTaskModal" tabindex="-1" aria-labelledby="viewTaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="viewTaskModalLabel">Task Details</h1>
+        <button type="button" class="btn-close" onclick="closeViewTaskModal()" aria-label="Close">&times;</button>
+      </div>
+      <div id="viewTaskContent">
+        <!-- O conteúdo será carregado aqui via JavaScript -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openViewTaskModal(taskId) {
+  // Carregar os detalhes da tarefa via AJAX
+  fetch(`/tasks/${taskId}`)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('viewTaskContent').innerHTML = html;
+      document.getElementById('viewTaskModal').classList.add('show');
+      document.body.classList.add('modal-open');
+    })
+    .catch(error => {
+      console.error('Error loading task details:', error);
+    });
+}
+
+function closeViewTaskModal() {
+  document.getElementById('viewTaskModal').classList.remove('show');
+  document.body.classList.remove('modal-open');
+  document.getElementById('viewTaskContent').innerHTML = '';
+}
+
+// Fechar modal clicando fora dele
+window.onclick = function(event) {
+  const modal = document.getElementById('viewTaskModal');
+  if (event.target == modal) {
+    closeViewTaskModal();
+  }
+}
+
+// Fechar modal com tecla ESC
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeViewTaskModal();
+  }
+});
+</script>

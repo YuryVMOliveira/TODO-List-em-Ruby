@@ -1,0 +1,59 @@
+<!-- Modal para criar nova tarefa -->
+<div class="modal fade" id="newTaskModal" tabindex="-1" aria-labelledby="newTaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="newTaskModalLabel">New Task</h1>
+        <button type="button" class="btn-close" onclick="closeNewTaskModal()" aria-label="Close">&times;</button>
+      </div>
+      <%= form_with model: Task.new, url: tasks_path, local: true do |form| %>
+        <%= form.hidden_field :list_id, value: @list.id %>
+        <div class="modal-body">
+          <div class="mb-3">
+            <%= form.label :title, "Task Title", class: "form-label" %>
+            <%= form.text_field :title, class: "form-control", placeholder: "Enter task title", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :description, "Description", class: "form-label" %>
+            <%= form.text_area :description, class: "form-control", placeholder: "Enter task description (optional)", rows: 3 %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :due_date, "Due Date", class: "form-label" %>
+            <%= form.datetime_local_field :due_date, class: "form-control" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeNewTaskModal()">Cancel</button>
+          <%= form.submit "Create Task", class: "btn btn-primary", onclick: "closeNewTaskModal()" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+function openNewTaskModal() {
+  document.getElementById('newTaskModal').classList.add('show');
+  document.body.classList.add('modal-open');
+}
+
+function closeNewTaskModal() {
+  document.getElementById('newTaskModal').classList.remove('show');
+  document.body.classList.remove('modal-open');
+}
+
+// Fechar modal clicando fora dele
+window.onclick = function(event) {
+  const modal = document.getElementById('newTaskModal');
+  if (event.target == modal) {
+    closeNewTaskModal();
+  }
+}
+
+// Fechar modal com tecla ESC
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeNewTaskModal();
+  }
+});
+</script>

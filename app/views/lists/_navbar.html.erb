@@ -1,0 +1,31 @@
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h4>My Lists</h4>
+    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newListModal">
+    ✚ New List
+    </button>
+  </div>
+  
+  <div class="sidebar-content">
+    <% if @lists.any? %>
+      <% @lists.each do |list| %>
+        <div class="list-item">
+          <%= link_to list.name, list_path(list), class: "list-link #{'active' if @list && @list.id == list.id}" %>
+          <%= link_to "🗑️", list_path(list), data: { "turbo-method": :delete, confirm: "Delete '#{list.name}'?" }, 
+                      class: "delete-btn" %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="no-lists">
+        <p>No lists yet</p>
+        <small>Create your first list!</small>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="sidebar-footer">
+    <%= link_to "Logout", logout_path, data: { "turbo-method": :delete }, class: "btn btn-outline-danger btn-sm" %>
+  </div>
+</div>
+

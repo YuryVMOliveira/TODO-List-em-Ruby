@@ -1,0 +1,81 @@
+<%= render 'lists/navbar' %>
+<%= render 'lists/new_list_modal' %>
+<%= render 'lists/new_task_modal' %>
+<%= render 'lists/edit_task_modal' %>
+<%= render 'lists/view_task_modal' %>
+
+<div class="main-content">
+  <div class="content-header">
+    <h1><%= @list.name %></h1>
+    <div>
+      <%= link_to "Edit List", edit_list_path(@list), class: "btn btn-custom-secondary me-2" %>
+      <button type="button" class="btn btn-primary" onclick="openNewTaskModal()">
+        ✚ Add Task
+      </button>
+    </div>
+  </div>
+
+  <div class="tasks-container">
+    <!-- My Tasks Section -->
+    <div class="tasks-section">
+      <h2>My Tasks</h2>
+      <% if @my_tasks.any? %>
+        <div class="task-list">
+          <% @my_tasks.each do |task| %>
+            <div class="task-item">
+              <div class="task-content">
+                <h5><%= task.title %></h5>
+                <% if task.description.present? %>
+                  <p><%= task.description %></p>
+                <% end %>
+                <% if task.due_date.present? %>
+                  <small class="due-date">Due: <%= task.due_date.strftime("%B %d, %Y") %></small>
+                <% end %>
+              </div>
+              <div class="task-actions">
+                <button type="button" class="btn btn-sm btn-outline-info" onclick="openViewTaskModal(<%= task.id %>)">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openEditTaskModal(<%= task.id %>)">Edit</button>
+                <%= link_to "Complete", task_path(task, task: { completed: true }), data: { "turbo-method": :patch }, class: "btn btn-sm btn-success" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="no-tasks">
+          <p>No pending tasks</p>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Concluded Tasks Section -->
+    <div class="tasks-section">
+      <h2>Concluded</h2>
+      <% if @concluded_tasks.any? %>
+        <div class="task-list">
+          <% @concluded_tasks.each do |task| %>
+            <div class="task-item concluded">
+              <div class="task-content">
+                <h5><%= task.title %></h5>
+                <% if task.description.present? %>
+                  <p><%= task.description %></p>
+                <% end %>
+                <% if task.due_date.present? %>
+                  <small class="due-date">Due: <%= task.due_date.strftime("%B %d, %Y") %></small>
+                <% end %>
+              </div>
+              <div class="task-actions">
+                <button type="button" class="btn btn-sm btn-outline-info" onclick="openViewTaskModal(<%= task.id %>)">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openEditTaskModal(<%= task.id %>)">Edit</button>
+                <%= link_to "Reopen", task_path(task, task: { completed: false }), data: { "turbo-method": :patch }, class: "btn btn-sm btn-warning" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="no-tasks">
+          <p>No completed tasks</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

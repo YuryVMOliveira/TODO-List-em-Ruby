@@ -1,4 +1,4 @@
-@use "bootstrap/scss/bootstrap";
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 body {
@@ -48,4 +48,387 @@ body {
   border-radius: 16px;
   padding: 40px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Estilos para o modal */
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  border-bottom: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-footer {
+  border-top: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+  border-radius: 0 0 12px 12px;
+}
+
+.btn-primary {
+  background-color: #783dbc;
+  border-color: #783dbc;
+}
+
+.btn-primary:hover {
+  background-color: #632d9c;
+  border-color: #632d9c;
+}
+
+/* Estilos para modal funcionar sem Bootstrap JS */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal.show {
+  display: block !important;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 1.75rem auto;
+  max-width: 500px;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.5rem;
+  outline: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000;
+  opacity: 0.5;
+}
+
+.btn-close:hover {
+  opacity: 0.75;
+}
+
+/* Estilos para a navbar */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.8) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+.navbar-text {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* Estilos para os cards das listas */
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-title {
+  color: #333;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #666;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 3px solid black;
+  text-align: center;
+}
+
+.sidebar-header h4 {
+  margin: 0 0 15px 0;
+  color: Black;
+}
+
+.sidebar-content {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #34495e;
+}
+
+.list-link {
+  flex: 1;
+  color: 
+  black;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.list-link:hover {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.list-link.active {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.delete-btn {
+  color: #e74c3c;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.no-lists {
+  padding: 20px;
+  text-align: center;
+  color: black;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #34495e;
+  text-align: center;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #632d9c, #fd5b00);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.content-header h1 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.tasks-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.tasks-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tasks-section h2 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.task-item.concluded {
+  background-color: #e8f5e8;
+  border-color: #c3e6c3;
+}
+
+.task-item.concluded .task-content h5 {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-content h5 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+}
+
+.task-content p {
+  margin: 0 0 8px 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.due-date {
+  color: #e67e22;
+  font-weight: 500;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 15px;
+}
+
+.no-tasks {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+}
+
+.no-tasks p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.task-details h5 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.task-details p {
+  color: #6c757d;
+  margin-bottom: 16px;
+}
+
+.task-details .badge {
+  font-size: 0.875rem;
+}
+
+.task-actions .btn {
+  margin: 0 2px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .tasks-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .task-actions .btn {
+    margin: 0;
+  }
 }
