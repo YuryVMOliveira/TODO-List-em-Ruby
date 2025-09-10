@@ -4,9 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-  
-     @recent_tasks = current_user.tasks.where(completed: false).order(due_date: :desc).limit(5)
-     @recent_concluded_tasks = current_user.tasks.where(completed: true).order(due_date: :desc).limit(5)
+
   end
 
   # GET /tasks/1 or /tasks/1.json
