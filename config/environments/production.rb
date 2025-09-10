@@ -76,6 +76,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Disable asset precompilation for Propshaft
+  config.assets.compile = true
+  config.assets.digest = false
+
   # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
 
