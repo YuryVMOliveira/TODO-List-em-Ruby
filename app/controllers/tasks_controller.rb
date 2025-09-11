@@ -75,7 +75,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       redirect_path = list ? list_path(list) : tasks_path
-      format.html { redirect_to redirect_path, notice: "Task was successfully destroyed.", status: :see_other }
+      format.html { redirect_to redirect_path, notice: "Task deleted successfully!", status: :see_other }
       format.json { head :no_content }
     end
   end

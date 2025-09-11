@@ -36,6 +36,9 @@
                 <button type="button" class="btn btn-sm btn-outline-info" onclick="openViewTaskModal(<%= task.id %>)">View</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openEditTaskModal(<%= task.id %>)">Edit</button>
                 <%= button_to "Complete", task_path(task, task: { completed: true }), method: :patch, class: "btn btn-sm btn-success" %>
+                <%= button_to "🗑️", task_path(task), method: :delete, 
+                            data: { confirm: "Delete '#{task.title}'?" }, 
+                            class: "btn btn-sm btn-outline-danger" %>
               </div>
             </div>
           <% end %>
@@ -67,6 +70,9 @@
                 <button type="button" class="btn btn-sm btn-outline-info" onclick="openViewTaskModal(<%= task.id %>)">View</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openEditTaskModal(<%= task.id %>)">Edit</button>
                 <%= button_to "Reopen", task_path(task, task: { completed: false }), method: :patch, class: "btn btn-sm btn-warning" %>
+                <%= button_to "🗑️", task_path(task), method: :delete, 
+                            data: { confirm: "Delete '#{task.title}'?" }, 
+                            class: "btn btn-sm btn-outline-danger" %>
               </div>
             </div>
           <% end %>
