@@ -79,6 +79,9 @@ Rails.application.configure do
   # Enable asset precompilation for Sprockets
   config.assets.compile = false
   config.assets.digest = true
+  
+  # Disable secret key base requirement
+  config.secret_key_base = ENV['SECRET_KEY_BASE'] || 'dummy_key_for_development_only'
 
   # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
