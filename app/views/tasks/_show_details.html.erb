@@ -33,17 +33,6 @@
       <p><%= @task.list.name %></p>
     </div>
 
-    <div class="mb-3">
-      <h5>Created</h5>
-      <p><%= @task.created_at.strftime("%B %d, %Y at %I:%M %p") %></p>
-    </div>
-
-    <% if @task.updated_at != @task.created_at %>
-      <div class="mb-3">
-        <h5>Last Updated</h5>
-        <p><%= @task.updated_at.strftime("%B %d, %Y at %I:%M %p") %></p>
-      </div>
-    <% end %>
   </div>
 </div>
 

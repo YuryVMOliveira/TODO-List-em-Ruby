@@ -12,8 +12,9 @@
       <% @lists.each do |list| %>
         <div class="list-item">
           <%= link_to list.name, list_path(list), class: "list-link #{'active' if @list && @list.id == list.id}" %>
-          <%= link_to "🗑️", list_path(list), data: { "turbo-method": :delete, confirm: "Delete '#{list.name}'?" }, 
-                      class: "delete-btn" %>
+          <%= button_to "🗑️", list_path(list), method: :delete, 
+                      data: { confirm: "Delete '#{list.name}'?" }, 
+                      class: "delete-btn btn btn-sm btn-outline-danger" %>
         </div>
       <% end %>
     <% else %>
