@@ -15,7 +15,7 @@
     <% if @task.due_date.present? %>
       <div class="mb-3">
         <h5>Due Date</h5>
-        <p><%= @task.due_date.strftime("%B %d, %Y at %I:%M %p") %></p>
+        <p><%= @task.due_date.strftime("%B %d, %Y") %></p>
       </div>
     <% end %>
 
