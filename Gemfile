@@ -8,7 +8,7 @@ gem 'popper_js', '~> 2.11'
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.2", ">= 8.0.2.1"
+gem "rails", "~> 8.1.1"
 # Use Sprockets for easier deployment
 gem "sprockets-rails"
 # Use postgresql as the database for Active Record
